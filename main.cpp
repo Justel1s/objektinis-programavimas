@@ -9,7 +9,7 @@ struct duomenys{
 };
 
 //Globalūs kintamieji
-int kiekis;
+int kiekis;//D
 duomenys D[999];
 
 //Duomenų įvedimo funkcija
