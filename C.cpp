@@ -53,7 +53,7 @@ void variantas1(duomenys *D, int skaicius){
         D[skaicius].nd = new int[skaicius2];
         while(true){
             cout << "Iveskite pazymi, o jei norite atsaukti - bet kokia raide: ";
-            if(!(cin >> D[skaicius].nd[D[skaicius].dydis])){
+            if(!(cin >> D[skaicius].nd[D[skaicius].dydis]) || (0 > x || x > 10)){
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 break;
@@ -71,7 +71,7 @@ void variantas1(duomenys *D, int skaicius){
         }
         skaicius2 = 0;
         cout << "Iveskite egzamino pazymi: ";
-        if(!(cin >> D[skaicius].egz)){
+        if(!(cin >> D[skaicius].egz) || (0 > x || x > 10)){
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;

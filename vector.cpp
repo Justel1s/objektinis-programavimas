@@ -43,7 +43,7 @@ void variantas1(vector<duomenys> &D){
         while(true){
             int x;
             cout << "Iveskite pazymi, o jei norite atsaukti - bet kokia raide: ";
-            if(!(cin >> x) && 0 < x < 11){
+            if(!(cin >> x) || (0 > x || x > 10)){
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 break;
@@ -51,7 +51,7 @@ void variantas1(vector<duomenys> &D){
             X.nd.push_back(x);
         }
         cout << "Iveskite egzamino pazymi: ";
-        if(!(cin >> X.egz) && 0 < X.egz < 11){
+        if(!(cin >> X.egz) || (0 > X.egz || X.egz > 10)){
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;
