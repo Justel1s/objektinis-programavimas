@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+//Strukturos apsirasymas
 struct duomenys{
     string v, p;
     int egz, dydis;
     int* nd;
 };
-
+//Pagalbines funkcijos
 int* randomBalai(int dydis){
     int *pazymiai = new int[dydis];
     for(int i = 0; i < dydis; i++){
@@ -23,7 +23,18 @@ string randomVardai(int dydis){
     }
     return vardas;
 }
+double galutinis(duomenys *D, int i){
+    double vidurkis = accumulate(D[i].nd, D[i].nd + D[i].dydis, 0.0) / D[i].dydis;
+    return 0.4 * vidurkis + 0.6 * D[i].egz;
+}
 
+double mediana(duomenys *D, int i){
+    D[i].dydis++;
+    D[i].nd[D[i].dydis-1] = D[i].egz;
+    sort(D[i].nd, D[i].nd + D[i].dydis);
+    return D[i].dydis % 2 == 0 ? (D[i].nd[D[i].dydis/2 - 1] + D[i].nd[D[i].dydis/2]) / 2.00 : D[i].nd[D[i].dydis/2];
+}
+//1 varianto algoritmas
 void variantas1(duomenys *D, int skaicius){
     while(true){
         cout << "Iveskite pavarde: ";
@@ -69,7 +80,7 @@ void variantas1(duomenys *D, int skaicius){
         break;
     }
 }
-
+//2 varianto algoritmas
 void variantas2(duomenys *D, int skaicius){
     while(true){
         cout << "Iveskite pavarde: ";
@@ -88,7 +99,7 @@ void variantas2(duomenys *D, int skaicius){
         break;
     }
 }
-
+//3 varianto algoritmas
 void variantas3(duomenys *D, int skaicius){
     while(true){
         int random = rand() % 10;
@@ -100,19 +111,7 @@ void variantas3(duomenys *D, int skaicius){
         break;
     }
 }
-
-double galutinis(duomenys *D, int i){
-    double vidurkis = accumulate(D[i].nd, D[i].nd + D[i].dydis, 0.0) / D[i].dydis;
-    return 0.4 * vidurkis + 0.6 * D[i].egz;
-}
-
-double mediana(duomenys *D, int i){
-    D[i].dydis++;
-    D[i].nd[D[i].dydis-1] = D[i].egz;
-    sort(D[i].nd, D[i].nd + D[i].dydis);
-    return D[i].dydis % 2 == 0 ? (D[i].nd[D[i].dydis/2 - 1] + D[i].nd[D[i].dydis/2]) / 2.00 : D[i].nd[D[i].dydis/2];
-}
-
+//Pagrindine funkcija
 int main(){
     srand(static_cast<unsigned int>(time(nullptr)));
     int pasirinkimas, skaicius = 0, ilgis = 1;
