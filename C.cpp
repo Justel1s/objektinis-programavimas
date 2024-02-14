@@ -93,7 +93,7 @@ void variantas2(duomenys *D, int skaicius){
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        D[skaicius].dydis = rand()%10;
+        D[skaicius].dydis = (1 + rand()%9);
         D[skaicius].nd = randomBalai(D[skaicius].dydis);
         D[skaicius].egz = rand()%10;
         break;
