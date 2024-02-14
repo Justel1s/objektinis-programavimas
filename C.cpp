@@ -27,7 +27,6 @@ double galutinis(duomenys *D, int i){
     double vidurkis = accumulate(D[i].nd, D[i].nd + D[i].dydis, 0.0) / D[i].dydis;
     return 0.4 * vidurkis + 0.6 * D[i].egz;
 }
-
 double mediana(duomenys *D, int i){
     D[i].dydis++;
     D[i].nd[D[i].dydis-1] = D[i].egz;
