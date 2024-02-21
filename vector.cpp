@@ -188,7 +188,19 @@ void variantas4(vector<duomenys> &D){
     }
     fd.close();
 }
-
+//Lyginimas
+bool palyginimas1(const duomenys& a, const duomenys& b){
+    return a.v < b.v;
+}
+bool palyginimas2(const duomenys& a, const duomenys& b){
+    return a.p < b.p;
+}
+bool palyginimas3(const duomenys& a, const duomenys& b){
+    return a.galutinis > b.galutinis;
+}
+bool palyginimas4(const duomenys& a, const duomenys& b){
+    return a.mediana > b.mediana;
+}
 //Pagrindine funkcija
 int main(){
     vector<duomenys> D;
