@@ -152,7 +152,8 @@ void variantas3(vector<duomenys> &D){
 }
 //4 varianto algoritmas
 void variantas4(vector<duomenys> &D){
-    ifstream fd("kursiokai.txt");
+    
+    ifstream fd("studentai10000.txt");
     string kiekis, nereikalinga;
 
     int ilgis = 0;
@@ -203,10 +204,10 @@ bool palyginimas4(const duomenys& a, const duomenys& b){
 }
 //Pagrindine funkcija
 int main(){
-    time_t start, end; 
-    time(&start);
+    //Laiko skaiciavimas
+    time_t start, end;
     ios_base::sync_with_stdio(false); 
-    
+
     vector<duomenys> D;
     int pasirinkimas;
     while(true){
@@ -215,7 +216,11 @@ int main(){
             if(pasirinkimas == 1) variantas1(D);
             if(pasirinkimas == 2) variantas2(D);
             if(pasirinkimas == 3) variantas3(D);
-            if(pasirinkimas == 4) variantas4(D);
+            if(pasirinkimas == 4) {
+                //Laiko skaiciavimo pradzia
+                time(&start);
+                variantas4(D);
+            }
             if(pasirinkimas == 5) break;
         }
         else {cout << "KLAIDA" << endl; break;}

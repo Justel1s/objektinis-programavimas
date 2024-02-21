@@ -87,7 +87,8 @@
     "valarray": "cpp",
     "ranges": "cpp",
     "stacktrace": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "any": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled",
   "C_Cpp_Runner.cCompilerPath": "clang",
