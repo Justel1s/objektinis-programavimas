@@ -152,10 +152,8 @@ void variantas3(vector<duomenys> &D){
 }
 //4 varianto algoritmas
 void variantas4(vector<duomenys> &D){
-    
-    ifstream fd("studentai10000.txt");
+    ifstream fd("studentai1000000.txt");
     string kiekis, nereikalinga;
-
     int ilgis = 0;
     fd >> nereikalinga >> nereikalinga;
     while(true){
@@ -239,10 +237,8 @@ int main(){
         }
         cout << left << setw(15) << D[i].p << left << setw(15) << D[i].v << left << setw(19) << setprecision(2) << fixed << D[i].galutinis << setprecision(2) << fixed << D[i].mediana << endl;
     }
-
     time(&end); 
     double time_taken = double(end - start); 
-    cout << "Time taken by program is : " << fixed << time_taken << setprecision(5) << " sec" << endl; 
-
+    cout << "Time taken by program is : " << fixed << time_taken << setprecision(5) << " sec" << endl;
     return 0;
 }
