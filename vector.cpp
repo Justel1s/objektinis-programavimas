@@ -29,7 +29,7 @@ void variantas1(vector<duomenys> &D){
     while(true){
         duomenys X;
         cout << "Iveskite pavarde: ";
-        if(!(cin >> X.p)){
+        while(!(cin >> X.p)){
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;
@@ -40,21 +40,45 @@ void variantas1(vector<duomenys> &D){
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;
         }
+        bool nulis = false;
         while(true){
             int x;
-            cout << "Iveskite pazymi, o jei norite atsaukti - bet kokia raide: ";
-            if(!(cin >> x) || (0 > x || x > 10)){
+            if(nulis) cout << "Iveskite pazymi, o jei norite baigti - 0: ";
+            else cout << "Iveskite pazymi: ";
+            if (!(cin >> x)) {
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cout << "Klaida: Prasome ivesti skaiciu" << endl;
+                continue;
+            }
+            if (x == 0){
+                if(!nulis){
+                    cout << "Bent viena pazymi reikia tureti!" << endl;
+                    continue;
+                }
                 break;
             }
+            if (x < 1 || x > 10) {
+                cout << "Klaida: Ivertinimas turi buti tarp 1 ir 10" << endl;
+                continue;
+            }
             X.nd.push_back(x);
+            if(!nulis) nulis = true;
         }
-        cout << "Iveskite egzamino pazymi: ";
-        if(!(cin >> X.egz) || (0 > X.egz || X.egz > 10)){
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            break;
+        while(true){
+            cout << "Iveskite egzamino pazymi: ";
+            if (!(cin >> X.egz)) {
+                cin.clear();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cout << "Klaida: Prasome ivesti skaiciu" << endl;
+                continue;
+            }
+            if (X.egz < 1 || X.egz > 10) {
+                cout << "Klaida: Ivertinimas turi buti tarp 1 ir 10" << endl;
+                continue;
+            }
+            else break;
+            
         }
         //Vidurkis
         double vidurkis = accumulate(X.nd.begin(), X.nd.end(), 0.0) / X.nd.size();
