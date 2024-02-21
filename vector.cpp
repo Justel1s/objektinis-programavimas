@@ -150,20 +150,63 @@ void variantas3(vector<duomenys> &D){
         break;
     }
 }
+//4 varianto algoritmas
+void variantas4(vector<duomenys> &D){
+    ifstream fd("studentai10000.txt");
+    string kiekis, nereikalinga;
+
+    int ilgis = 0;
+    fd >> nereikalinga >> nereikalinga;
+    while(true){
+        fd >> kiekis;
+        if(isdigit(kiekis[2])) ilgis++;
+        else break;
+    }
+    while (true){
+        duomenys X;
+        fd >> X.v;
+        if(X.v.empty())
+            break;
+        fd >> X.p;
+        for (int i = 0; i < ilgis; i++){
+            int x;
+            fd >> x;
+            X.nd.push_back(x);
+        }
+        fd >> X.egz;
+        //Vidurkis
+        double vidurkis = accumulate(X.nd.begin(), X.nd.end(), 0.0) / X.nd.size();;
+        X.galutinis = 0.4 * vidurkis + 0.6 * X.egz;
+        //Mediana
+        X.nd.push_back(X.egz);
+        sort(X.nd.begin(), X.nd.end());
+        int vidurys = X.nd.size()/2;
+        if(X.nd.size()%2) X.mediana = X.nd[vidurys];
+        else X.mediana = (X.nd[vidurys] + X.nd[vidurys-1] / 2.0);
+        //Viska sudeda i D
+        D.push_back(X);
+    }
+    fd.close();
+}
+
 //Pagrindine funkcija
 int main(){
     vector<duomenys> D;
     int pasirinkimas;
     while(true){
-        cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - baigti darba" << endl;        
+        cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - testi darba" << endl;        
         if(cin>>pasirinkimas){
             if(pasirinkimas == 1) variantas1(D);
             if(pasirinkimas == 2) variantas2(D);
             if(pasirinkimas == 3) variantas3(D);
-            if(pasirinkimas == 4) break;
+            if(pasirinkimas == 4) variantas4(D);
+            if(pasirinkimas == 5) break;
         }
         else {cout << "KLAIDA" << endl; break;}
     }
+
+    
+    cout << "Rikiavimas pagal: 1 - varda, 2 - pavarde, 3 - galutini, 4 - mediana" << endl;
     for(int i = 0; i < D.size(); i++){
         if(i == 0){
             cout << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
