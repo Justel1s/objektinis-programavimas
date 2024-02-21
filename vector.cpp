@@ -204,8 +204,12 @@ int main(){
         }
         else {cout << "KLAIDA" << endl; break;}
     }
-
-    
+    if(cin>>pasirinkimas){
+                if(pasirinkimas == 1) sort(D.begin(), D.end(), palyginimas1);
+                if(pasirinkimas == 2) sort(D.begin(), D.end(), palyginimas2);
+                if(pasirinkimas == 3) sort(D.begin(), D.end(), palyginimas3);
+                if(pasirinkimas == 4) sort(D.begin(), D.end(), palyginimas4);
+            }
     cout << "Rikiavimas pagal: 1 - varda, 2 - pavarde, 3 - galutini, 4 - mediana" << endl;
     for(int i = 0; i < D.size(); i++){
         if(i == 0){
