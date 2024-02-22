@@ -12,7 +12,7 @@ Programa skirta skaičiuoti galutinį balą pagal įvestus duomenis.
 - Gaunamas galutinį balą.
 
 ## Programos vykdymo greitis (5 kartų vidurkis)
-|Failas/Versija  | v0.2 |
+|Failas \ Versija  | v0.2 |
 | :--- | ---- |
 | studentai10000 | 1034 ms |
 | studentai100000 | 4381 ms |
