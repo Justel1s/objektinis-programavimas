@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
-#include "student.h"
-
+#include "studentai.h"
 using namespace std;
 
 int main(){
@@ -27,13 +26,13 @@ int main(){
         else {cout << "KLAIDA" << endl; break;}
     }
     cout << "Rikiavimas pagal: 1 - varda, 2 - pavarde, 3 - galutini, 4 - mediana" << endl;
-    // if(cin>>pasirinkimas){
+    if(cin>>pasirinkimas){
             pasirinkimas = 1;
             if(pasirinkimas == 1) sort(D.begin(), D.end(), palyginimas1);
             if(pasirinkimas == 2) sort(D.begin(), D.end(), palyginimas2);
             if(pasirinkimas == 3) sort(D.begin(), D.end(), palyginimas3);
             if(pasirinkimas == 4) sort(D.begin(), D.end(), palyginimas4);
-        // }
+        }
     for(int i = 0; i < D.size(); i++){
         if(i == 0){
             cout << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
