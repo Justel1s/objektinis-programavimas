@@ -1,9 +1,7 @@
 #ifndef studentai_h
 #define studentai_h
-
 #include <bits/stdc++.h>
 using namespace std;
-
 struct duomenys{
     string v, p;
     vector<int> nd;
