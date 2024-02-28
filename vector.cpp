@@ -1,10 +1,8 @@
 #include <bits/stdc++.h>
 #include "studentai.h"
 using namespace std;
-
 int main(){
     auto start = chrono::high_resolution_clock::now();
-
     vector<duomenys> D;
     int pasirinkimas;
     while(true){
@@ -18,8 +16,6 @@ int main(){
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				cout << e.what();
                     cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - testi darba" << endl;        
-
-
             }
         }
         if(pasirinkimas == 1) variantas1(D);
@@ -35,7 +31,6 @@ int main(){
         }
         if(pasirinkimas == 5) break;
     }
-    
     while(true){
         cout << "Rikiavimas pagal: 1 - varda, 2 - pavarde, 3 - galutini, 4 - mediana" << endl;
         while(!(cin>>pasirinkimas) || pasirinkimas < 1 || pasirinkimas > 4){
@@ -55,7 +50,6 @@ int main(){
             if(pasirinkimas == 4) sort(D.begin(), D.end(), palyginimas4);
         }
     }
-    
     for(int i = 0; i < D.size(); i++){
         if(i == 0){
             cout << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
@@ -63,7 +57,6 @@ int main(){
         }
         cout << left << setw(15) << D[i].p << left << setw(15) << D[i].v << left << setw(19) << setprecision(2) << fixed << D[i].galutinis << setprecision(2) << fixed << D[i].mediana << endl;
     }
-
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
     cout << "Time taken by program is : " << duration.count() << " milliseconds" << endl;
