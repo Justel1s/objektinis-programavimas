@@ -147,6 +147,15 @@ void variantas3(vector<duomenys> &D){
 }
 //4 varianto algoritmas
 void variantas4(vector<duomenys> &D){
+    try{
+        ifstream fd("studentai10000.txt");
+        if(!fd.is_open()){
+            throw ios_base::failure("Failas neatidarytas\n");
+        }
+    }
+    catch(const ios_base::failure &e){
+        cout << e.what();
+    }
     ifstream fd("studentai10000.txt");
     string kiekis, nereikalinga;
     int ilgis = 0;

@@ -15,7 +15,7 @@ int main(){
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				cout << e.what();
-                    cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - testi darba" << endl;        
+                cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - testi darba" << endl;        
             }
         }
         if(pasirinkimas == 1) variantas1(D);
@@ -43,12 +43,13 @@ int main(){
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 cout << "Rikiavimas pagal: 1 - varda, 2 - pavarde, 3 - galutini, 4 - mediana" << endl;
             }
-            pasirinkimas = 1;
-            if(pasirinkimas == 1) sort(D.begin(), D.end(), palyginimas1);
-            if(pasirinkimas == 2) sort(D.begin(), D.end(), palyginimas2);
-            if(pasirinkimas == 3) sort(D.begin(), D.end(), palyginimas3);
-            if(pasirinkimas == 4) sort(D.begin(), D.end(), palyginimas4);
         }
+        pasirinkimas = 1;
+        if(pasirinkimas == 1) sort(D.begin(), D.end(), palyginimas1);
+        if(pasirinkimas == 2) sort(D.begin(), D.end(), palyginimas2);
+        if(pasirinkimas == 3) sort(D.begin(), D.end(), palyginimas3);
+        if(pasirinkimas == 4) sort(D.begin(), D.end(), palyginimas4);
+        break;
     }
     for(int i = 0; i < D.size(); i++){
         if(i == 0){
