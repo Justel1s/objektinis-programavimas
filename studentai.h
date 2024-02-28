@@ -10,7 +10,6 @@ struct duomenys{
     int egz;
     double galutinis, mediana;
 };
-
 void randomBalai(int dydis, duomenys &X);
 string randomVardai(int dydis);
 void variantas1(vector<duomenys> &D);
