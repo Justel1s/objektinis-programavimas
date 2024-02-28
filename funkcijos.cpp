@@ -217,3 +217,4 @@ bool palyginimas3(const duomenys& a, const duomenys& b){
 bool palyginimas4(const duomenys& a, const duomenys& b){
     return a.mediana > b.mediana;
 }
+
