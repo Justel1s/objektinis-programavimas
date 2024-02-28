@@ -10,7 +10,6 @@ void randomBalai(int dydis, duomenys &X){
         X.nd.push_back(paz[i]);
     }
 }
-
 string randomVardai(int dydis){
     string vardas;
     for(int i = 0; i < dydis; i++){
@@ -28,6 +27,17 @@ void variantas1(vector<duomenys> &D){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             break;
+        }
+        while(!(cin>>X.p)){
+            try{
+                throw runtime_error("Netinkama isvestis\n");
+            }
+            catch (const runtime_error &e){
+                cin.clear();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cout << e.what();
+                cout << "Iveskite pavarde: ";            
+            }
         }
         cout << "Iveskite varda: ";
         if(!(cin >> X.v)){
