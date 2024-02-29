@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/justelis/Documents/GitHub/FomulaStats/KITAS BRANCH/objektinis-programavimas",
-      "program": "/Users/justelis/Documents/GitHub/FomulaStats/KITAS BRANCH/objektinis-programavimas/build/Debug/outDebug"
+      "cwd": "/Users/justelis/Documents/GitHub/FomulaStats/KITAS BRANCH/objektinis-programavimas-1",
+      "program": "/Users/justelis/Documents/GitHub/FomulaStats/KITAS BRANCH/objektinis-programavimas-1/build/Debug/outDebug"
     }
   ]
 }
