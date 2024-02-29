@@ -27,7 +27,7 @@ int main(){
             variantas4(D);
             auto end = chrono::high_resolution_clock::now();
             auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
-            cout << "Time taken to read from file: " << duration.count() << " milliseconds" << endl;
+            cout << "Laikas, kuri truko nuskaityti is failo: " << duration.count() << " milliseconds" << endl;
         }
         if(pasirinkimas == 5) break;
     }
@@ -60,6 +60,6 @@ int main(){
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
-    cout << "Time taken by program is : " << duration.count() << " milliseconds" << endl;
+    cout << "Programa uztruko: " << duration.count() << " millisekundes" << endl;
     return 0;
 }

@@ -51,6 +51,7 @@ void variantas1(vector<duomenys> &D){
             if(nulis) cout << "Iveskite pazymi, o jei norite baigti - 0: ";
             else cout << "Iveskite pazymi: ";
             if (!(cin >> x)) {
+                cout << endl;
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Klaida: Prasome ivesti skaiciu" << endl;
