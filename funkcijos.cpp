@@ -19,11 +19,22 @@ void generateFile(const string& failoPavadinimas, int kiekis) {
             }
             fr << endl;
         }
-        fr.close(); // Uždaro failą
+        fr.close();
         cout << "Sugeneruotas failas: " << failoPavadinimas << endl;
-    } else {
+    }   else {
         cout << "Klaida: " << failoPavadinimas << endl;
     }
+}
+//Rikiavimas
+void rikiavimas(vector<duomenys> &D){
+    vector<duomenys> blog;
+    vector<duomenys> geri;
+    cout << D.size() << endl;
+    for(int i = 0; i < D.size(); i++){
+        if(D[i].galutinis < 5) blog.push_back(D[i]);
+        if(D[i].galutinis > 4) geri.push_back(D[i]);
+    }
+    
 }
 //Pagalbines funkcijos
 void randomBalai(int dydis, duomenys &X){
@@ -180,9 +191,9 @@ void variantas3(vector<duomenys> &D){
     }
 }
 //4 varianto algoritmas
-void variantas4(vector<duomenys> &D){
+void variantas4(vector<duomenys> &D, string failas){
     try{
-        ifstream fd("studentai10000.txt");
+        ifstream fd(failas);
         if(!fd.is_open()){
             throw ios_base::failure("Failas neatidarytas\n");
         }
@@ -190,7 +201,7 @@ void variantas4(vector<duomenys> &D){
     catch(const ios_base::failure &e){
         cout << e.what();
     }
-    ifstream fd("studentai10000.txt");
+    ifstream fd(failas);
     string kiekis, nereikalinga;
     int ilgis = 0;
     fd >> nereikalinga >> nereikalinga;

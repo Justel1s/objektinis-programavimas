@@ -24,7 +24,7 @@ int main(){
         if(pasirinkimas == 4) {
             auto start = chrono::high_resolution_clock::now();
             //Laiko skaiciavimo pradzia
-            variantas4(D);
+            // variantas4(D);
             auto end = chrono::high_resolution_clock::now();
             auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
             cout << "Laikas, kuri truko nuskaityti is failo: " << duration.count() << " milliseconds" << endl;
@@ -41,14 +41,32 @@ int main(){
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout << e.what();
                     cout << "1 var. - studentai1000.txt\n2 var. - studentai10000.txt\n3 var. - studentai100000.txt\n4 var. - studentai1000000.txt\n5 var. - studentai10000000.txt\n";
-
                 }
             }
-            if(variantas == 1) generateFile("studentai1000.txt", 1000);
-            if(variantas == 2) generateFile("studentai10000.txt", 10000);
-            if(variantas == 3) generateFile("studentai100000.txt", 100000);
-            if(variantas == 4) generateFile("studentai1000000.txt", 1000000);
-            if(variantas == 5) generateFile("studentai10000000.txt", 10000000);
+            //Generavimas ir skaitymas
+            if(variantas == 1){
+                generateFile("studentai1000.txt", 1000);
+                variantas4(D, "studentai1000.txt");
+            } 
+            if(variantas == 2){
+                generateFile("studentai10000.txt", 10000);
+                variantas4(D, "studentai10000.txt");
+            } 
+            if(variantas == 3){
+                generateFile("studentai100000.txt", 100000);
+                variantas4(D, "studentai100000.txt");
+            }
+            if(variantas == 4){
+                generateFile("studentai1000000.txt", 1000000);
+                variantas4(D, "studentai1000000.txt");
+            }
+            if(variantas == 5){
+                generateFile("studentai10000000.txt", 10000000);
+                variantas4(D, "studentai10000000.txt");
+            }
+            //Spausdinimas
+            rikiavimas(D);
+            //Spausdinimas
         }
         if(pasirinkimas == 6) break;
     }
@@ -72,6 +90,7 @@ int main(){
         if(pasirinkimas == 4) sort(D.begin(), D.end(), palyginimas4);
         break;
     }
+    
     for(int i = 0; i < D.size(); i++){
         if(i == 0){
             cout << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
