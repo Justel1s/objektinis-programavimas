@@ -2,6 +2,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Failu generavimas
+void generateFile(const string& failoPavadinimas, int kiekis) {
+    ofstream fr(failoPavadinimas);
+    int nd = rand() % 10;
+    if (fr.is_open()) {
+        fr << setw(40) << left << "Vardas" << setw(40) << left << "Pavarde";
+        for (int i = 0; i < nd; i++) {
+            fr << setw(20) << left << "ND" + to_string(i);
+        }
+        fr << setw(10) << left << "Egz" << endl;
+        for (int i = 0; i < kiekis; ++i) {
+            fr << setw(40) << left << "Vardas" + to_string(i + 1) << setw(40) << left << "Pavarde" + to_string(i + 1);
+            for (int j = 0; j <= nd; j++) {
+                fr << setw(20) << left << to_string(rand() % 10);
+            }
+            fr << endl;
+        }
+        fr.close(); // Uždaro failą
+        cout << "Sugeneruotas failas: " << failoPavadinimas << endl;
+    } else {
+        cout << "Klaida: " << failoPavadinimas << endl;
+    }
+}
 //Pagalbines funkcijos
 void randomBalai(int dydis, duomenys &X){
     vector<int> paz(dydis);

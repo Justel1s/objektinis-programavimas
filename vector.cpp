@@ -6,8 +6,8 @@ int main(){
     vector<duomenys> D;
     int pasirinkimas;
     while(true){
-        cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - testi darba" << endl;        
-        while(!(cin>>pasirinkimas) || pasirinkimas < 1 || pasirinkimas > 5){
+        cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - failu generavimas, 6 - testi darba" << endl;        
+        while(!(cin>>pasirinkimas) || pasirinkimas < 1 || pasirinkimas > 6){
             try{
                 throw runtime_error("Netinkama isvestis\n");
             }
@@ -15,7 +15,7 @@ int main(){
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				cout << e.what();
-                cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - testi darba" << endl;        
+                cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - skaityti iš failo, 5 - failu generavimas, 6 - testi darba" << endl;        
             }
         }
         if(pasirinkimas == 1) variantas1(D);
@@ -29,7 +29,28 @@ int main(){
             auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
             cout << "Laikas, kuri truko nuskaityti is failo: " << duration.count() << " milliseconds" << endl;
         }
-        if(pasirinkimas == 5) break;
+        if(pasirinkimas == 5){
+            int variantas;
+            cout << "1 var. - studentai1000.txt\n2 var. - studentai10000.txt\n3 var. - studentai100000.txt\n4 var. - studentai1000000.txt\n5 var. - studentai10000000.txt\n";
+            while(!(cin>>variantas) || variantas < 1 || variantas > 5){
+                try{
+                    throw runtime_error("Netinkama isvestis\n");
+                }
+                catch (const runtime_error &e){
+                    cin.clear();
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    cout << e.what();
+                    cout << "1 var. - studentai1000.txt\n2 var. - studentai10000.txt\n3 var. - studentai100000.txt\n4 var. - studentai1000000.txt\n5 var. - studentai10000000.txt\n";
+
+                }
+            }
+            if(variantas == 1) generateFile("studentai1000.txt", 1000);
+            if(variantas == 2) generateFile("studentai10000.txt", 10000);
+            if(variantas == 3) generateFile("studentai100000.txt", 100000);
+            if(variantas == 4) generateFile("studentai1000000.txt", 1000000);
+            if(variantas == 5) generateFile("studentai10000000.txt", 10000000);
+        }
+        if(pasirinkimas == 6) break;
     }
     while(true){
         cout << "Rikiavimas pagal: 1 - varda, 2 - pavarde, 3 - galutini, 4 - mediana" << endl;
