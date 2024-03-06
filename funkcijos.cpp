@@ -1,12 +1,18 @@
 #include "studentai.h"
 #include <bits/stdc++.h>
+#include <random>
 using namespace std;
 
+random_device rd;
+mt19937 gen(rd());
+uniform_int_distribution<> dis(1, 10);
 //Failu generavimas
 void generateFile(const string& failoPavadinimas, int kiekis) {
     ofstream fr(failoPavadinimas);
-    int nd = rand() % 10;
+
+
     if (fr.is_open()) {
+        int nd = dis(gen);
         fr << setw(40) << left << "Vardas" << setw(40) << left << "Pavarde";
         for (int i = 0; i < nd; i++) {
             fr << setw(20) << left << "ND" + to_string(i);
@@ -15,7 +21,7 @@ void generateFile(const string& failoPavadinimas, int kiekis) {
         for (int i = 0; i < kiekis; ++i) {
             fr << setw(40) << left << "Vardas" + to_string(i + 1) << setw(40) << left << "Pavarde" + to_string(i + 1);
             for (int j = 0; j <= nd; j++) {
-                fr << setw(20) << left << to_string(rand() % 10);
+                fr << setw(20) << left << to_string(dis(gen));
             }
             fr << endl;
         }
@@ -241,7 +247,7 @@ void variantas4(vector<duomenys> &D, string failas){
         sort(X.nd.begin(), X.nd.end());
         int vidurys = X.nd.size()/2;
         if(X.nd.size()%2) X.mediana = X.nd[vidurys];
-        else X.mediana = (X.nd[vidurys] + X.nd[vidurys-1] / 2.0);
+        else X.mediana = (X.nd[vidurys] + X.nd[vidurys-1] / 2.0;
         //Viska sudeda i D
         D.push_back(X);
     }
