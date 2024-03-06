@@ -64,9 +64,6 @@ int main(){
                 generateFile("studentai10000000.txt", 10000000);
                 variantas4(D, "studentai10000000.txt");
             }
-            //Spausdinimas
-            rikiavimas(D);
-            //Spausdinimas
         }
         if(pasirinkimas == 6) break;
     }
@@ -80,17 +77,15 @@ int main(){
                 cin.clear();
                 cout << e.what();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                cout << "Rikiavimas pagal: 1 - varda, 2 - pavarde, 3 - galutini, 4 - mediana" << endl;
             }
         }
-        pasirinkimas = 1;
         if(pasirinkimas == 1) sort(D.begin(), D.end(), palyginimas1);
         if(pasirinkimas == 2) sort(D.begin(), D.end(), palyginimas2);
         if(pasirinkimas == 3) sort(D.begin(), D.end(), palyginimas3);
         if(pasirinkimas == 4) sort(D.begin(), D.end(), palyginimas4);
         break;
     }
-    
+    rikiavimas(D);
     for(int i = 0; i < D.size(); i++){
         if(i == 0){
             cout << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;

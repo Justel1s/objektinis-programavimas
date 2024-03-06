@@ -29,10 +29,21 @@ void generateFile(const string& failoPavadinimas, int kiekis) {
 void rikiavimas(vector<duomenys> &D){
     vector<duomenys> blog;
     vector<duomenys> geri;
-    cout << D.size() << endl;
     for(int i = 0; i < D.size(); i++){
         if(D[i].galutinis < 5) blog.push_back(D[i]);
         if(D[i].galutinis > 4) geri.push_back(D[i]);
+    }
+    ofstream fr1("blogi.txt");
+    ofstream fr2("geri.txt");
+    fr1 << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
+    fr1 << "-----------------------------------------------------------------" << endl;
+    for(int i = 0; i < blog.size(); i++){
+        fr1 << left << setw(15) << blog[i].p << left << setw(15) << blog[i].v << left << setw(19) << setprecision(2) << fixed << blog[i].galutinis << setprecision(2) << fixed << blog[i].mediana << endl;
+    }
+    fr2 << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
+    fr2 << "-----------------------------------------------------------------" << endl;
+    for(int i = 0; i < geri.size(); i++){
+        fr2 << left << setw(15) << geri[i].p << left << setw(15) << geri[i].v << left << setw(19) << setprecision(2) << fixed << geri[i].galutinis << setprecision(2) << fixed << geri[i].mediana << endl;
     }
     
 }
