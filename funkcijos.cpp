@@ -33,12 +33,17 @@ void generateFile(const string& failoPavadinimas, int kiekis) {
 }
 //Rikiavimas
 void rikiavimas(vector<duomenys> &D){
+    auto start = std::chrono::high_resolution_clock::now();
     vector<duomenys> blog;
     vector<duomenys> geri;
     for(int i = 0; i < D.size(); i++){
         if(D[i].galutinis < 5) blog.push_back(D[i]);
         if(D[i].galutinis > 4) geri.push_back(D[i]);
     }
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "Failo skirstymo laikas: " << duration.count() << " ms" << std::endl;
+    auto start1 = std::chrono::high_resolution_clock::now();
     ofstream fr1("blogi.txt");
     ofstream fr2("geri.txt");
     fr1 << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
@@ -51,6 +56,9 @@ void rikiavimas(vector<duomenys> &D){
     for(int i = 0; i < geri.size(); i++){
         fr2 << left << setw(15) << geri[i].p << left << setw(15) << geri[i].v << left << setw(19) << setprecision(2) << fixed << geri[i].galutinis << setprecision(2) << fixed << geri[i].mediana << endl;
     }
+    auto end1 = std::chrono::high_resolution_clock::now();
+    auto duration1 = std::chrono::duration_cast<std::chrono::milliseconds>(end1 - start1);
+    std::cout << "Failo irasymo laikas: " << duration.count() << " ms" << std::endl;
     
 }
 //Pagalbines funkcijos
@@ -247,7 +255,7 @@ void variantas4(vector<duomenys> &D, string failas){
         sort(X.nd.begin(), X.nd.end());
         int vidurys = X.nd.size()/2;
         if(X.nd.size()%2) X.mediana = X.nd[vidurys];
-        else X.mediana = (X.nd[vidurys] + X.nd[vidurys-1] / 2.0;
+        else X.mediana = (X.nd[vidurys] + X.nd[vidurys-1]) / 2.0;
         //Viska sudeda i D
         D.push_back(X);
     }
