@@ -43,6 +43,7 @@ int main(){
                     cout << "1 var. - studentai1000.txt\n2 var. - studentai10000.txt\n3 var. - studentai100000.txt\n4 var. - studentai1000000.txt\n5 var. - studentai10000000.txt\n";
                 }
             }
+            auto start = std::chrono::high_resolution_clock::now();
             //Generavimas ir skaitymas
             if(variantas == 1){
                 generateFile("studentai1000.txt", 1000);
@@ -64,6 +65,9 @@ int main(){
                 generateFile("studentai10000000.txt", 10000000);
                 variantas4(D, "studentai10000000.txt");
             }
+            auto end = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+            std::cout << "Failo generavimo ir skaitymo laikas: " << duration.count() << " ms" << std::endl;
         }
         if(pasirinkimas == 6) break;
     }
@@ -86,15 +90,15 @@ int main(){
         break;
     }
     rikiavimas(D);
-    for(int i = 0; i < D.size(); i++){
-        if(i == 0){
-            cout << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
-            cout << "-----------------------------------------------------------------" << endl;
-        }
-        cout << left << setw(15) << D[i].p << left << setw(15) << D[i].v << left << setw(19) << setprecision(2) << fixed << D[i].galutinis << setprecision(2) << fixed << D[i].mediana << endl;
-    }
+    // for(int i = 0; i < D.size(); i++){
+    //     if(i == 0){
+    //         cout << "Pavardė        Vardas         Galutinis (Vid.) / Galutinis (Med.)" << endl;
+    //         cout << "-----------------------------------------------------------------" << endl;
+    //     }
+    //     cout << left << setw(15) << D[i].p << left << setw(15) << D[i].v << left << setw(19) << setprecision(2) << fixed << D[i].galutinis << setprecision(2) << fixed << D[i].mediana << endl;
+    // }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
-    cout << "Programa uztruko: " << duration.count() << " millisekundes" << endl;
+    cout << "Programa uztruko: " << duration.count() << " ms" << endl;
     return 0;
 }
