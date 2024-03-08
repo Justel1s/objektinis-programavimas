@@ -37,7 +37,7 @@ Tikrina įvestus duomenis ar jie teisingi ir atitinka programos reikalavimus.
 | studentai100000.txt | 13 ms |
 | studentai1000000.txt | 92 ms |
 | studentai10000000.txt | 763 ms |
-| studentai100000000.txt | 70596 ms |
+| studentai100000000.txt | 6705 ms |
 
 ## Failo išvedimas
 |Failas \ Versija  | v0.4 |
@@ -46,4 +46,5 @@ Tikrina įvestus duomenis ar jie teisingi ir atitinka programos reikalavimus.
 | studentai100000.txt | 13 ms |
 | studentai1000000.txt | 93 ms |
 | studentai10000000.txt | 791 ms |
-| studentai100000000.txt | 70596 ms |
+| studentai100000000.txt | 8431
+ ms |
