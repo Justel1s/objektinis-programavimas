@@ -28,6 +28,7 @@ Programa naudoja kelis konteinerių tipus apskaičiuoti veikimo spartą su skirt
 | studentai100000 | 846 ms | 342 ms | 35 ms | 2039 ms |
 | studentai1000000 | 10024 ms | 5516 ms | 342 ms | 16202 ms |
 | studentai10000000 | 162431 ms | 72118 ms | 13353 ms | 320132 ms |
+
 #### List
 |  |Failo skaitymo greitis| Studentu rūšiavimo laikas | Studentų paskirstymo laikas | Visas veikimo laikas |
 | :--- | ---- | ---- | ---- | ---- |
