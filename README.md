@@ -98,7 +98,6 @@ Programa naudoja kelis konteinerių tipus apskaičiuoti veikimo spartą su skirt
 - [CMake]
 - [Visual Studio Code]
 
-
 ### Instrukcija
 
 1. Atsisiųskite programos "source code" iš repozitorijos.

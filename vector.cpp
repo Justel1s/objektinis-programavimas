@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     srand(time(nullptr));
     vector<duomenys> D;
-    
+
     int variantas;
 
     while (true) {
