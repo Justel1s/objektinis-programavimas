@@ -1,24 +1,29 @@
 #ifndef studentai_h
 #define studentai_h
 #include <bits/stdc++.h>
-using namespace std;
+
 struct duomenys{
-    string v, p;
-    vector<int> nd;
-    int egz;
+    std::string v, p;
+    std::vector<int> pazymiai;
+    int egzaminas;
     double galutinis, mediana;
 };
-void generateFile(const string& failoPavadinimas, int kiekis);
-void randomBalai(int dydis, duomenys &X);
-string randomVardai(int dydis);
-void variantas1(vector<duomenys> &D);
-void variantas2(vector<duomenys> &D);
-void variantas3(vector<duomenys> &D);
-void variantas4(vector<duomenys> &D, string failas);
-void rikiavimas(vector<duomenys> &D);
-bool palyginimas1(const duomenys& a, const duomenys& b);
-bool palyginimas2(const duomenys& a, const duomenys& b);
-bool palyginimas3(const duomenys& a, const duomenys& b);
-bool palyginimas4(const duomenys& a, const duomenys& b);
+void balo_skaiciavimas(duomenys&);
+std::string generuoti_varda(int);
+std::vector<int> generuoti_pazymius(int);
+
+template <typename Container>
+void failo_skaitymas(std::ifstream &, Container&);
+void vardo_skaitymas(duomenys &);
+void pazymio_skaitymas(duomenys &);
+void balo_skaiciavimas(duomenys &);
+bool rikiavimas_vardas(const duomenys &, const duomenys &);
+bool rikiavimas_pavarde(const duomenys &, const duomenys &);
+bool rikiavimas_galutinis(const duomenys &, const duomenys &);
+bool rikiavimas_mediana(const duomenys &, const duomenys &);
+void failo_generavimas(int, std::string);
+void rusiavimas(std::vector<duomenys>&);
+void paskutine(int, std::string);
+void spausdinimas(std::vector<duomenys> &);
 
 #endif
