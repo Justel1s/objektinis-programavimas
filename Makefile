@@ -4,4 +4,3 @@ studentai.o: funkcijos.cpp
 	g++ -c funkcijos.cpp -o studentai.o
 clean:
 	rm *.o vector studentai
-
