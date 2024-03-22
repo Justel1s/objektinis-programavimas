@@ -1,6 +1,7 @@
 #ifndef studentai_h
 #define studentai_h
 #include <bits/stdc++.h>
+
 struct duomenys{
     std::string v, p;
     std::vector<int> pazymiai;
