@@ -267,6 +267,7 @@ void Strategija2(Container &a, Container &b, int kintamasis) {
     auto diff = chrono::duration_cast<chrono::milliseconds>(end - start);
     cout << "Strategija2 pirmunai ir vargsai per: " << diff.count() << " ms\n";
 }
+
 template <typename Container>
 void Strategija3(Container &a, Container &b, int kintamasis) {
     auto start = chrono::high_resolution_clock::now();
